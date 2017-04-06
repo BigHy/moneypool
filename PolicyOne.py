@@ -20,6 +20,12 @@ def TradeGetAllBuy(code, date):
     alist = ['买盘']
     return df[df2['type'].isin(alist)]
 
+def TradeGetAllSell(code, date):
+    df = ts.get_tick_data(code, date)
+    df2 = df.copy()
+    alist = ['卖盘']
+    return df[df2['type'].isin(alist)]
+
 def TradeGetDDBuy(code, date, volume):
     df = ts.get_sina_dd(code, date=date ,vol=volume)
     df2 = df.copy()
